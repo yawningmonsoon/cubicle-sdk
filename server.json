@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.algotrada.cubicle/cubicle",
+  "title": "Cubicle",
+  "description": "Agent trading tools: candles, copy-trading, hire a strategy for your Robinhood vault, pay on chain",
+  "version": "1.1.0",
+  "websiteUrl": "https://cubicle.algotrada.com",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://cubicle.algotrada.com/deck/api/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer <your Cubicle key>. Optional: initialize, tools/list, catalogue, plans, strategies and strategy_quote answer without one. A free key: https://cubicle.algotrada.com/deck/join",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

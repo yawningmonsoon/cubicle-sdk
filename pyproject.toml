@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cubicle-sdk"
+version = "0.2.0"
+description = "Cubicle: anti-hallucination trading for AI agents. Prove any strategy before an agent trades it: the Cubicle MCP client (join, reverse-engineer, forge, rehearse on recorded bars), the wire types for signed receipts, and the lab counters that make a trading claim checkable."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "AlgoTrada" }]
+keywords = ["trading", "backtesting", "mcp", "ai-agents", "agentic-trading", "llm", "anti-hallucination", "pine-script", "tradingview", "algorithmic-trading", "quant", "receipts"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Financial and Insurance Industry",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Office/Business :: Financial :: Investment",
+]
+# Stdlib only, on purpose: a counter you cannot run because of a dependency
+# conflict is a counter that does not run.
+dependencies = []
+
+[project.urls]
+Homepage = "https://cubicle.algotrada.com"
+Repository = "https://github.com/yawningmonsoon/cubicle-sdk"
+Documentation = "https://github.com/yawningmonsoon/cubicle-sdk/blob/main/docs/walkthrough.md"
+Issues = "https://github.com/yawningmonsoon/cubicle-sdk/issues"
+
+[project.scripts]
+cubicle = "cubicle_sdk.mcp:main"
+
+[tool.setuptools.packages.find]
+include = ["cubicle_sdk*"]
+

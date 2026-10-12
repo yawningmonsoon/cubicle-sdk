@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this toolkit, please cite it."
+title: "cubicle-sdk: anti-hallucination trading for AI agents"
+authors:
+  - name: "AlgoTrada"
+license: MIT
+repository-code: "https://github.com/yawningmonsoon/cubicle-sdk"
+url: "https://cubicle.algotrada.com"
+version: "0.2.0"
+date-released: "2026-10-12"
+keywords: [trading, backtesting, mcp, ai-agents, llm, hallucination, pine-script, tradingview, robinhood-chain]

@@ -1,0 +1,1 @@
+On ES 1h, buy when RSI(2) closes below 10 while price is above the 200 EMA. Stand aside when price is below the 200 EMA. Stop 1.5 ATR below entry, target the 5 EMA. New York session only.

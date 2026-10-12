@@ -1,0 +1,32 @@
+$ cubicle reverse examples/strategies/opening-range-breakout.pine
+target   pine-script  (first tool: pine_read)
+findings 6 observed · 1 inferred · 4 unknown
+ceiling  hypothesis
+
+checklist
+  [ ] Which market?                      E2
+  [ ] Which bar size?                    E3
+  [x] What triggers the entry?           E4
+  [x] Which direction?                   E5
+  [x] Where is the stop?                 E6
+  [x] Where is the target?               E7
+  [~] When does it stand aside?          E8
+  [ ] Do its numbers match the tape?     E10
+  [ ] Was it run over recorded bars?     E11
+
+findings
+  E1   OBSERVED  Pine v5 strategy "Opening range breakout", 15 lines, 1 input
+  E2   UNKNOWN   a Pine script names no market: it runs on whichever chart it is added to
+       settles it: the trader names the market
+  E3   UNKNOWN   the bar size is the chart's, not the script's
+       settles it: the trader names the bar size
+  E4   OBSERVED  2 order calls (strategy.entry / strategy.order) place the entries
+  E5   OBSERVED  it trades both sides (strategy.long and strategy.short)
+  E6   OBSERVED  strategy.exit carries a stop
+  E7   OBSERVED  strategy.exit carries a limit or profit target
+  E8   INFERRED  a session or time window is coded; which hours it excludes depends on its inputs
+  E9   OBSERVED  repaint risk — calc_on_every_tick: live orders are placed inside the bar, history is computed on the close
+  E10  UNKNOWN   static reading: the script was read, never run, so no number of its own exists to check
+       settles it: forge the rule and rehearse it on the tape
+  E11  UNKNOWN   a TradingView backtest is not evidence here: it is not this tape, and repainting scripts flatter themselves
+       settles it: forge the rule and rehearse it on the tape

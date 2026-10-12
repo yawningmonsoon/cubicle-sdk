@@ -1,0 +1,1 @@
+On BTC 15m, buy when price closes below the lower Bollinger band and RSI 14 is under 30. Stand aside when the trend is down (EMA 20 below EMA 60). Stop 1 ATR below, target the 20 bar mean.

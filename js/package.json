@@ -1,0 +1,61 @@
+{
+  "name": "cubicle-sdk",
+  "version": "0.2.0",
+  "description": "Cubicle: anti-hallucination trading for AI agents. Prove any strategy before an agent trades it: reverse-engineer a rule or a Pine script, build it, run it on recorded bars, over one MCP server.",
+  "type": "module",
+  "main": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.mjs"
+    }
+  },
+  "bin": {
+    "cubicle": "./cli.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "index.d.ts",
+    "cli.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test.mjs"
+  },
+  "keywords": [
+    "trading",
+    "backtesting",
+    "backtest",
+    "mcp",
+    "model-context-protocol",
+    "ai-agents",
+    "agentic-trading",
+    "llm",
+    "anti-hallucination",
+    "pine-script",
+    "tradingview",
+    "strategy",
+    "quant",
+    "algorithmic-trading",
+    "futures",
+    "crypto",
+    "robinhood-chain",
+    "claude"
+  ],
+  "homepage": "https://cubicle.algotrada.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yawningmonsoon/cubicle-sdk.git",
+    "directory": "js"
+  },
+  "license": "MIT",
+  "author": "AlgoTrada",
+  "bugs": {
+    "url": "https://github.com/yawningmonsoon/cubicle-sdk/issues"
+  }
+}

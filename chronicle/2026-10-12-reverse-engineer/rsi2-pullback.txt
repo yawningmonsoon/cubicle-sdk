@@ -1,0 +1,36 @@
+$ python3 examples/reconstruct.py examples/strategies/rsi2-pullback.txt --market ES --accept
+target   rule-text  (first tool: workflow_read)
+findings 8 observed · 0 inferred · 2 unknown
+ceiling  hypothesis
+
+checklist
+  [x] Which market?                      E1
+  [x] Which bar size?                    E8
+  [x] What triggers the entry?           E2
+  [x] Which direction?                   E3
+  [x] Where is the stop?                 E5
+  [x] Where is the target?               E6
+  [x] When does it stand aside?          E4 E7
+  [ ] Do its numbers match the tape?     E9
+  [ ] Was it run over recorded bars?     E10
+
+findings
+  E1   OBSERVED  markets: "ES" — the trader's own words
+  E2   OBSERVED  the trigger: "close · closes below 10 while price is above the 200 EMA" — the trader's own words
+  E3   OBSERVED  direction: "buy / long" — the trader's own words
+  E4   OBSERVED  stand aside: "Stand aside when price is below the 200 EMA" — the trader's own words
+  E5   OBSERVED  the stop: "Stop 1.5 ATR below entry" — the trader's own words
+  E6   OBSERVED  the target: "target the 5 EMA" — the trader's own words
+  E7   OBSERVED  the session: "session only" — the trader's own words
+  E8   OBSERVED  bar size: "1h" — the trader's own words
+  E9   UNKNOWN   words carry no number to check yet
+       settles it: forge the rule and rehearse it on the tape
+  E10  UNKNOWN   a rule in words was never run
+       settles it: forge the rule and rehearse it on the tape 
+
+move     {'move': 'accept_parts'}  →  EXPRESSIBLE
+move     {'move': 'choose_coverage', 'choice': 'approximate'}  →  FORGED
+forged   930cfec91ea35e14…
+rehearse 4 trades in 168 h of real bars · sum 1R
+gate     4 trades in a week. At least 10 are needed to judge it.
+means    past bars, not a forecast

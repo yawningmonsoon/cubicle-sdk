@@ -1,0 +1,15 @@
+//@version=5
+// A textbook opening range breakout, written for this repo as a reading example (not a recommendation).
+strategy("Opening range breakout", overlay=true, calc_on_every_tick=true)
+sess = input.session("0930-0945", "Opening range")
+inR = not na(time(timeframe.period, sess))
+var float hi = na
+var float lo = na
+hi := inR ? math.max(nz(hi, high), high) : hi
+lo := inR ? math.min(nz(lo, low), low) : lo
+if not inR and close > hi
+    strategy.entry("L", strategy.long)
+if not inR and close < lo
+    strategy.entry("S", strategy.short)
+strategy.exit("xL", "L", stop=lo, limit=hi + (hi - lo))
+strategy.exit("xS", "S", stop=hi, limit=lo - (hi - lo))

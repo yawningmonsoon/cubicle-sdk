@@ -1,0 +1,42 @@
+# The SDK re-proves itself on every push: type invariants hold and every
+# counter passes its own self-test from a clean checkout.
+name: sdk
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: install (stdlib only — pytest is the sole dev dep)
+        run: pip install pytest
+      - name: type invariants + counter self-tests
+        run: python -m pytest tests/ -q
+      - name: the counters run as documented in the README
+        run: |
+          python -m cubicle_sdk.lab.null_panel --self-test
+          python -m cubicle_sdk.lab.deflated_sharpe --sr 2.5 --trials 100 --obs 1250
+          python examples/preflight.py
+      - name: the MCP client lists the live server's tools (no key)
+        run: python -m cubicle_sdk.mcp tools
+
+  js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: the JavaScript client against a local stand-in server
+        run: cd js && node --test test.mjs
+      - name: the package holds exactly what it should
+        run: cd js && npm pack --dry-run

@@ -1,0 +1,36 @@
+$ python3 examples/reconstruct.py examples/strategies/opening-range-breakout.txt --market NQ --accept
+target   rule-text  (first tool: workflow_read)
+findings 8 observed · 0 inferred · 2 unknown
+ceiling  hypothesis
+
+checklist
+  [x] Which market?                      E1
+  [x] Which bar size?                    E8
+  [x] What triggers the entry?           E2
+  [x] Which direction?                   E3
+  [x] Where is the stop?                 E5
+  [x] Where is the target?               E6
+  [x] When does it stand aside?          E4 E7
+  [ ] Do its numbers match the tape?     E9
+  [ ] Was it run over recorded bars?     E10
+
+findings
+  E1   OBSERVED  markets: "NQ" — the trader's own words
+  E2   OBSERVED  the trigger: "break · breaks above the high of the first 15 minutes" — the trader's own words
+  E3   OBSERVED  direction: "buy / long" — the trader's own words
+  E4   OBSERVED  stand aside: "Stand aside after 11:00 ET" — the trader's own words
+  E5   OBSERVED  the stop: "Stop at the opening range low" — the trader's own words
+  E6   OBSERVED  the target: "target 2R" — the trader's own words
+  E7   OBSERVED  the session: "session" — the trader's own words
+  E8   OBSERVED  bar size: "5m" — the trader's own words
+  E9   UNKNOWN   words carry no number to check yet
+       settles it: forge the rule and rehearse it on the tape
+  E10  UNKNOWN   a rule in words was never run
+       settles it: forge the rule and rehearse it on the tape 
+
+move     {'move': 'accept_parts'}  →  EXPRESSIBLE
+move     {'move': 'choose_coverage', 'choice': 'approximate'}  →  FORGED
+forged   a6631d6445f82a73…
+rehearse 5 trades in 168 h of real bars · sum 2.5R
+gate     5 trades in a week. At least 10 are needed to judge it.
+means    past bars, not a forecast
