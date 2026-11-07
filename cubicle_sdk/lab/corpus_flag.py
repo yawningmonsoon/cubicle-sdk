@@ -27,7 +27,7 @@ KNOWN_CUTOFFS = {
     "gpt-5": "2024-10",
     "deepseek-v3.1": "2024-07",
     "qwen3-max": "2024-12",
-    "nemotron-algotrada": "2024-06",
+    "house-lane": "2024-06",
 }
 
 
